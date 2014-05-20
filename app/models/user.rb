@@ -10,10 +10,9 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
   validates :password, :confirmation => true
   #Only on Create so other actions like update password attribute can be nil
-  validates_length_of :password, :in => 6..20, :on => :create
+  validates_length_of :password, :in => 3..20, :on => :create
 
-  attr_accessible :username, :email, :password, :password_confirmation
-
+  attr_accessible :username, :email, :password, :password_confirmation, :role
 
   def self.authenticate(username_or_email="", login_password="")
 
@@ -45,6 +44,18 @@ class User < ActiveRecord::Base
 
   def clear_password
     self.password = nil
+  end
+
+
+  Roles = [ :admin , :default ]
+  
+  
+  def is?( requested_role )
+    self.role == requested_role.to_s
+  end
+  def role?(role)
+  #roles.map(&:name).include? role.to_s
+  self.role == requested_role.to_s
   end
 
 end

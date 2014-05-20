@@ -15,6 +15,9 @@
     <p>     
       Password Confirmation:</br> <%= f.password_field :password_confirmation%>
     </p>
+  <p>
+    <%= f.collection_select :role, User::Roles, :to_s, :to_s %> 
+  </p>
 
     <%= f.submit :Update %>
   <% end %>

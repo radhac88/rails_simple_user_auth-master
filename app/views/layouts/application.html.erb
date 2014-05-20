@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RubySource User Auth</title>
+  <title>Radha</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<div class="Main_Header">
-		<h1>Ruby Source</h1>
+		<h1>Ruby</h1>
 		<%unless session[:user_id]%>
 			<ul class="nav">
 				<li><%= link_to :Signup , :signup, class: "nav_links"%></li>|

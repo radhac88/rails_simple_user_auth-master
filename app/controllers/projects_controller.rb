@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :current_user
+  load_and_authorize_resource
   # GET /projects
   # GET /projects.json
   def index
